@@ -80,8 +80,19 @@ factor_logic2 = as.factor(pull(prob2_df, prob2_logic))
 The size of my dataset is `r dim(prob2_df)`; which means it has `r nrow(prob2_df)` rows and `r ncol(prob2_df)`columns. The mean of x is `r mean(pull(prob2_df, x))`, its median is `r median(pull(prob2_df, x))`, and its standard deviation is `r sd(pull(prob2_df, x))`. The proportion of cases for which x + y > 1 is `r length(which (num_logic2 == 1)) / (nrow(prob2_df) * ncol(prob2_df))`
 
 ## 2.2
-In this part, I have made three scattered plots and colored the dots using 1- logical variable, 2- numeric variable, and 3- factor variable.
+In this part, I have made three scatter pointss and colored the dots using 1- logical variable, 2- numeric variable, and 3- factor variable.
 
+```{r}
 
+logic_scatterplot = ggplot(prob2_df, aes(x = x, y = y, color = prob2_logic)) + geom_point()
+logic_scatterplot
+ggplot(prob2_df, aes(x = x, y = y, color = num_logic2)) + geom_point()
+ggplot(prob2_df, aes(x = x, y = y, color = factor_logic2)) + geom_point()
 
+ggsave("logic_scatterplot2.pdf")
+
+```
+
+* Results(comment on colors in these three plots)
+........
 
