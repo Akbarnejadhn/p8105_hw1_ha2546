@@ -5,26 +5,64 @@ date: "9/13/2019"
 output: github_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r}
+
+library(tidyverse)
+
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+# problem 1
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+## 1-1.
+First, I am going to create a data frame containing a random sample and different vectors, and on the next step, I have calculated the mean of each variable inmy data frame. Then, I have converted logical, character, and factor variables' types to numeric:
 
-```{r cars}
-summary(cars)
+
+```{r}
+
+prob1_df = tibble(
+  vec_sample = rnorm(8),
+  vec_logic = vec_sample > 0,
+  vec_char = c("This", "is", "problem", "one", "homework", "one", "Hana", "Akbarnejad"),
+  vec_factor = factor(c("good", "fair", "poor", "poor", "fair", "fair", "fair", "fair"), ordered = TRUE)
+)
+
+sample_mean = mean(pull(prob1_df, vec_sample))
+logic_mean = mean(pull(prob1_df, vec_logic))
+char_mean = mean(pull(prob1_df, vec_char))
+factor_mean = mean(pull(prob1_df, vec_factor))
+
+num_logic = as.numeric(pull(prob1_df, vec_logic))
+num_char = as.numeric(pull(prob1_df, vec_char))
+num_factor = as.numeric(pull(prob1_df, vec_factor))
+
 ```
 
-## Including Plots
+* Results:
+ 
 
-You can also embed plots, for example:
+## 1-2.
+In the second part, I have taken the logical variable that I had converted to numeric, and do some calculations. Then, I have converted the logical vector again, but this time to a factor variable. And again, done some calculations...
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+
+num_logic_calc = pull(prob1_df, vec_sample) * num_logic
+
+factor_logic = as.factor(pull(prob1_df, vec_logic))
+factor_logic_calc1 = pull(prob1_df, vec_sample) * factor_logic
+
+num_factor_logic = as.numeric(factor_logic)
+factor_logic_calc2 = pull(prob1_df, vec_sample) * num_factor_logic
+
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+ * Results:
+ ............
+ 
+# Problem 2
+
+
+ 
+ 
+ 
+
