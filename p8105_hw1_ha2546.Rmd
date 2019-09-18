@@ -92,9 +92,9 @@ It can be observed that calculations are possible when dealing with logical vect
 # Problem 2
 
 ## 2.1
-First, I am going to creat a data frame, define varian=bles x and y, and play with it a little bit...
+First, I am going to creat a data frame, define varian=bles x and y, and a logical vector. Then I transformed the logical vector to numeric and factor.
 
-```{r}
+```{r create_df_2}
 
 prob2_df = tibble(
   x = rnorm(500),
@@ -110,14 +110,18 @@ factor_logic2 = as.factor(pull(prob2_df, prob2_logic))
 The size of my dataset is `r dim(prob2_df)`; which means it has `r nrow(prob2_df)` rows and `r ncol(prob2_df)`columns. The mean of x is `r mean(pull(prob2_df, x))`, its median is `r median(pull(prob2_df, x))`, and its standard deviation is `r sd(pull(prob2_df, x))`. The proportion of cases for which x + y > 1 is `r length(which (num_logic2 == 1)) / (nrow(prob2_df) * ncol(prob2_df))`
 
 ## 2.2
-In this part, I have made three scatter pointss and colored the dots using 1- logical variable, 2- numeric variable, and 3- factor variable.
+In this part, I have made three scatter plots and colored the points using 1- logical variable, 2- numeric variable, and 3- factor variable.
 
-```{r}
+```{r scatter_plots}
 
 logic_scatterplot = ggplot(prob2_df, aes(x = x, y = y, color = prob2_logic)) + geom_point()
 logic_scatterplot
-ggplot(prob2_df, aes(x = x, y = y, color = num_logic2)) + geom_point()
-ggplot(prob2_df, aes(x = x, y = y, color = factor_logic2)) + geom_point()
+
+num_logic_scatterplot = ggplot(prob2_df, aes(x = x, y = y, color = num_logic2)) + geom_point()
+num_logic_scatterplot
+
+factor_logic_scatterplot = ggplot(prob2_df, aes(x = x, y = y, color = factor_logic2)) + geom_point()
+factor_logic_scatterplot
 
 ggsave("logic_scatterplot2.pdf")
 
