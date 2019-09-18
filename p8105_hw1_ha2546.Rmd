@@ -121,5 +121,6 @@ ggsave("logic_scatterplot.pdf")
 
 ```
 
-* Results(comment on colors in these three plots)
+* **Results**
 
+When we try to color with logical vector, we have only two colors because it is either true or false. Whne working with numeric one, because it is a range, we get a range of colors although we only get two golors in our plot due to the properties of the case we are working with. For logical vector, it is again only tru and false cases, so we again only get two colors.
