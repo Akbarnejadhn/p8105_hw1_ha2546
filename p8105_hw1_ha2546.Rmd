@@ -27,14 +27,10 @@ prob1_df = tibble(
   vec_factor = factor(c("good", "fair", "poor", "poor", "fair", "fair", "fair", "fair"))
 )
 
-sample_mean = mean(pull(prob1_df, vec_sample))
-sample_mean
-logic_mean = mean(pull(prob1_df, vec_logic))
-logic_mean
-char_mean = mean(pull(prob1_df, vec_char))
-char_mean
-factor_mean = mean(pull(prob1_df, vec_factor))
-factor_mean
+mean(pull(prob1_df, vec_sample))
+mean(pull(prob1_df, vec_logic))
+mean(pull(prob1_df, vec_char))
+mean(pull(prob1_df, vec_factor))
 
 ```
 
@@ -46,7 +42,7 @@ When trying to calculate the mean for the variables in my data frame, I observed
 ## 1-2
 In the second part, I have tried to convert the logical, character, and factor variables' types I had to numeric:
 
-```{r transform_to_numeric, results='hold'}
+```{r transform_to_numeric, eval = FALSE}
 
 as.numeric(pull(prob1_df, vec_logic))
 as.numeric(pull(prob1_df, vec_char))
@@ -121,10 +117,9 @@ num_logic_scatterplot
 factor_logic_scatterplot = ggplot(prob2_df, aes(x = x, y = y, color = factor_logic2)) + geom_point()
 factor_logic_scatterplot
 
-ggsave("logic_scatterplot2.pdf")
+ggsave("logic_scatterplot.pdf")
 
 ```
 
 * Results(comment on colors in these three plots)
-........
 
