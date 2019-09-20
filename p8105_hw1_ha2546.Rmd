@@ -36,7 +36,7 @@ mean(pull(prob1_df, vec_factor))
 
 * **Results**
 
-When trying to calculate the mean for the variables in my data frame, I observed that it is not possible for character and factor arguments. This observation is what was actually expected because calculating mean is only possible for numeric or logical vectors.
+When trying to calculate the mean for the variables in my data frame, I observed that I get values for random sample and logical vectors, but got NA for the character and factor arguments. This observation is what was actually expected because calculating mean is only possible for numeric or logical vectors.
 
 
 ## 1-2
