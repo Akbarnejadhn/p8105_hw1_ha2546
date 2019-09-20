@@ -1,7 +1,7 @@
 ---
 title: "p8105_hw1_ha2546"
 author: "Hana Akbarnejad"
-date: "9/13/2019"
+date: "9/20/2019"
 output: github_document
 ---
 
@@ -57,7 +57,7 @@ It was observed that we were unable to convert character vector to numeric. We g
 
 ## 1-3
 On the final step for question one, I played a little bit with the logical vector! First, converted the logical vector to numeric(num_logic) (although I did that step in the previous part, I did it again because it was stated again in this part of question) and multiplied the random sample by the result and saved it as num_logic_calc. Then, I converted the logical vector to factor(factor_logic), and multiplied the random sample by the result and saved it as factor_logic_calc1. Then, I used the logical vector that had been transformed to factor(factor_logic), and multiplied it by random sample.
-I saved the variables this time so that I can see the results altogether in the output, because I wanted to include them in this explanation to make my answer more clear, and because I needed each in the step after that.
+I saved the variables this time so that I can see the results altogether in the output, because I wanted to include them in this explanation to make my answer more clear, and because I needed each in the step after that. I set warnings = FALSE to have a cleaner output.
 
 
 ```{r playing_with_logic!, warning = FALSE}
@@ -100,10 +100,10 @@ prob2_df = tibble(
 
 ```
 
-The size of my dataset for problem 2 (named prob2_df) is `r dim(prob2_df)`; which means it has `r nrow(prob2_df)` rows and `r ncol(prob2_df)`columns. The mean of x is `r mean(pull(prob2_df, x))`, its median is `r median(pull(prob2_df, x))`, and its standard deviation is `r sd(pull(prob2_df, x))`. The proportion of cases for which x + y > 1 is `r sum(pull(prob2_df, prob2_logic))/nrow(prob2_df)`
+The size of my dataset for problem 2 (named prob2_df) is `r dim(prob2_df)`; which means it has `r nrow(prob2_df)` rows and `r ncol(prob2_df)`columns. The mean of x is `r mean(pull(prob2_df, x))`, its median is `r median(pull(prob2_df, x))`, and its standard deviation is `r sd(pull(prob2_df, x))`. The proportion of cases for which x + y > 1 is `r sum(pull(prob2_df, prob2_logic))/nrow(prob2_df)` which is obtained by dividing `r sum(pull(prob2_df, prob2_logic))` / `r nrow(prob2_df)`.
 
 ## 2.2
-In this part, I have made three scatter plots and colored the points using 1- logical variable, 2- numeric variable, and 3- factor variable.
+In this part, I have made three scatter plots using function ggplot, and colored the points using 1- logical variable, 2- numeric variable, and 3- factor variable. I called each plot to show them in my RMD output and then saved the first scatter plot (colored using logical vector) with ggsave function.
 
 ```{r scatter_plots}
 
@@ -122,4 +122,4 @@ ggsave("logic_scatterplot.pdf")
 
 * **Results**
 
-When we try to color with logical vector, we have only two colors because it is either true or false. Whne working with numeric one, because it is a range, we get a range of colors although we only get two golors in our plot due to the properties of the case we are working with. For logical vector, it is again only tru and false cases, so we again only get two colors.
+When we try to color with logical vector, we have only two colors because it is either true or false. When working with numeric one, because it is a range, we get a range of colors although we only get two golors in our plot due to the properties of the case we are working with. For logical vector, it is again only true and false cases, so we again only get two colors.
