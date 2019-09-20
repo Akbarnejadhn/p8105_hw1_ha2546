@@ -15,7 +15,7 @@ library(tidyverse)
 # problem 1
 
 ## 1-1
-First, I am going to create a data frame containing a random sample and different vectors. On the next step, I have calculated the mean of each variable in my data frame.
+First, I have created a data frame containing a random sample of size 8 from a Standard Normal Distribution, a logical vector  indicating whether elements of the sample are greater than 0, a character vector of length 8, and a factor vector of size 8 with three different levels. On the next step, I tried to calculate the mean of each variable in my data frame.
 
 
 ```{r create_df_mean}
